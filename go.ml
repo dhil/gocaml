@@ -41,7 +41,7 @@ module Go = struct
       let open Effect.Deep in
       { retc = (fun _ -> run_next q)
       ; exnc = raise (* TODO: what's the Go semantics of panic
-                        propagation across asynchronous call? *)
+                        propagation across asynchronous calls? *)
       ; effc = (fun (type a) (eff : a Effect.t) ->
         match eff with
         | Go g ->
